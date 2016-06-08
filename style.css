@@ -1,58 +1,87 @@
 
 @-webkit-keyframes movemydiv { /* Safari, Opera, Chrome */
-    0% {
-        transform: translateX(0px);
-    }
-
-    50% {
-        transform: translateX(150px);
-    }
-
-    100% {
-        transform: translateX(150px) rotate(30deg);
-    }
+    0% {transform: translateX(0px); }
+    50% { transform: translateX(150px); }
+    100% { transform: translateX(150px) rotate(30deg); }
 }
 @keyframes movemydiv {
-    from {
-        transform: translateX(0px);
-    }
-
-    30% {
-        transform: translateX(150px);
-    }
-
-    60% {
-        transform: translateX(150px) rotate(30deg);
-    }
-
-    80% {
-        transform: translate(100px, 80px) rotate(30deg);
-    }
-
+    from { transform: translateX(0px); }
+    30% { transform: translateX(150px); }
+    60% { transform: translateX(150px) rotate(30deg); }
+    80% { transform: translate(100px, 80px) rotate(30deg); }
     to {
         transform: translate(100px, 80px) rotate(30deg);
         border-radius: 30px;
         background-color: red;
     }
 }
-
-div
-{
+.animation1 {
     margin: 100px;
     width: 200px;
     height: 150px;
     background-color: #008;
 }
-
-div:hover
-{
+.animation1:hover {
     animation: movemydiv 2s linear alternate infinite; /* Boucle d'animation ! */
 }
-
 h1 {
   text-align: center;
+  width: 80%;
   margin: 5%;
   margin-bottom: 10%;
   border: 1px solid black;
   background-color: #c0c0c0;
 }
+
+/*-------------------animation 2 en 3D--------------*/
+.container-fluid {
+    perspective: 800px;
+    box-sizing: border-box;
+}
+.container-fluid div {
+    width: 200px;
+    height: 290px;
+    position: absolute;
+    top: 200px;
+    left: 500px;
+    border: 2px solid black;
+    background-color: black;
+    border-radius: 10%;
+    text-align: center;
+    font-size: 1.3em;
+    font-family: arial, sans-serif;
+    -webkit-transition: 2s;
+    -moz-transition: 2s;
+    transition: 2s;
+    backface-visibility: hidden; /* Permet d'éviter de voir le bloc de dos */
+}
+#devant {
+    margin-bottom: 10%;
+    z-index: 100;
+    background-image: url(as.png);    /* background-image: linear-gradient(#cc0000, black); */
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+#derriere {
+    margin-bottom: 10%;
+    z-index: 50;
+    background-image: url(reine.png);    /* background-image: linear-gradient(#cc0000, black); */
+    background-repeat: no-repeat;
+    background-size: 100%;
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    transform: rotateY(-180deg); /* Celui-ci est retourné par défaut */
+}
+#devant:hover {
+  -webkit-transform: rotateY(360deg);
+  -moz-transform: rotateY(360deg);
+    transform: rotateY(360deg); /* On passe de 0 à 360° : tour complet */
+}
+
+/* Lorsqu'on survole le bloc devant, on applique une rotation au bloc derriere*/
+#devant:hover + #derriere {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+    transform: rotateY(180deg);  /* On passe de -180° à 180° : tour complet */
+}
+/*-------------3 animation --*/

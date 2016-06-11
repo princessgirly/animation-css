@@ -1,4 +1,9 @@
-
+html, body {
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(to top, black, white);
+  background-repeat: no-repeat;
+}
 @-webkit-keyframes movemydiv { /* Safari, Opera, Chrome */
     0% {transform: translateX(0px); }
     50% { transform: translateX(150px); }
@@ -26,13 +31,14 @@
 }
 h1 {
   color: #cc0080;
-  text-align: center;
   margin: 1em;
-  margin-bottom: 1.5em;
   font-size: 6em;
   font-family: URW Chancery L;
 }
-
+h3 {
+  font-size: 2em;
+  font-family: URW Chancery L;
+}
 /*-------------------animation 2 en 3D--------------*/
 .container-fluid {
     perspective: 800px;
@@ -48,6 +54,7 @@ h1 {
     background-color: black;
     border-radius: 10%;
     text-align: center;
+    margin-left: 20%;
     font-size: 1.3em;
     font-family: arial, sans-serif;
     -webkit-transition: 2s;

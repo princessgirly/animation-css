@@ -44,6 +44,9 @@ h3 {
     perspective: 800px;
     box-sizing: border-box;
 }
+.container-fluid h1 {
+    margin-left: 15%;
+}
 .container-fluid div {
     width: 200px;
     height: 290px;
